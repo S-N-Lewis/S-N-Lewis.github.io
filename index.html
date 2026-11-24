@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal site options | Suning (Simon) Liu</title>
+<meta name="author" content="Simon.L">
+<meta name="robots" content="noindex">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,"PingFang SC","Noto Sans SC",sans-serif;background:#f4f5f7;color:#161b26;line-height:1.55}
+main{max-width:1100px;margin:0 auto;padding:clamp(28px,6vw,72px) clamp(18px,4vw,40px)}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 .3em}
+.lede{color:#566070;margin:0 0 2em;max-width:60ch}
+ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+a.opt{display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+a.opt:hover{box-shadow:0 8px 28px rgba(0,0,0,.09)}
+a.opt:focus-visible{outline:3px solid #2f6fdf;outline-offset:3px}
+.sw{height:120px;display:flex;align-items:flex-end;padding:14px 18px;font-size:1.25rem;font-weight:700}
+.a .sw{background:linear-gradient(180deg,#d6ecf5,#f2faf8);color:#10303a}
+.b .sw{background:#0f2621;color:#cfe58f;font-family:"Iowan Old Style",Georgia,"Songti SC",serif;font-weight:400}
+.c .sw{background:#eef1f5;color:#161b26;gap:6px}
+.c .sw i{display:inline-block;width:26px;height:26px;border-radius:8px}
+.d .sw{background:#fafafa;color:#333;font-weight:500}
+.txt{padding:16px 18px 20px}
+.txt h2{font-size:1.05rem;margin:0 0 .3em}
+.txt p{margin:0;color:#566070;font-size:.95rem}
+.txt .zh{margin-top:.4em;font-size:.92rem}
+.foot{margin-top:2.4em;color:#566070;font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+<h1>Pick a direction</h1>
+<p class="lede">Three complete versions of the same site, with the same facts. Each one has home, about, projects, experience, notes, CV download and contact, in English and Chinese.<br>同一份内容做成三套完整网站，挑一个。</p>
+<ul>
+<li><a class="opt a" href="a/"><div class="sw">Clear Morning</div><div class="txt"><h2>A. Clear Morning</h2><p>Light and plain: white page, pale sky wash, teal from the CV. The most conventional and easiest to scan.</p><p class="zh" lang="zh-Hans">明亮清楚的白底页面，天青色渐变，信息一眼扫完。</p></div></a></li>
+<li><a class="opt b" href="b/"><div class="sw">First Light</div><div class="txt"><h2>B. First Light</h2><p>Dark bush green with a fresh lime accent, serif reading voice and a fixed sidebar. Feels like a personal journal.</p><p class="zh" lang="zh-Hans">深林绿底配嫩绿点缀，衬线字体加侧栏，像一本个人手记。</p></div></a></li>
+<li><a class="opt c" href="c/"><div class="sw"><i style="background:#dde9ff"></i><i style="background:#e8e3fc"></i><i style="background:#d9f2e5"></i><i style="background:#fff0c4"></i></div><div class="txt"><h2>C. Timeline Board</h2><p>Soft coloured tiles and a real career timeline from 2018 to 2026. Friendly and modern, numbers up front.</p><p class="zh" lang="zh-Hans">彩色卡片拼板，加一条 2018–2026 的职业时间线，数字放在最前面。</p></div></a></li>
+<li><a class="opt d" href="../v5/"><div class="sw">Simple blog</div><div class="txt"><h2>D. Simple blog</h2><p>A single calm blog version, built separately.</p><p class="zh" lang="zh-Hans">另一版：安静简洁的博客式网站。</p></div></a></li>
+</ul>
+<p class="foot">Built from assets/data.js and the November 2026 CV. No phone number is published. Works without JavaScript.</p>
+</main>
+</body>
+</html>
