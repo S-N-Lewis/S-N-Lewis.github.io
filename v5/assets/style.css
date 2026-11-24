@@ -1,0 +1,131 @@
+/* Suning Liu — v5. Calm, paper, one accent. */
+:root {
+  --paper: #f8f4ec;
+  --ink: #2b2622;
+  --muted: #6b625a;
+  --rule: #e4dccf;
+  --accent: #a04a2a;          /* warm terracotta, 5.4:1 on paper */
+  --accent-soft: rgba(160, 74, 42, .28);
+  --measure: 36rem;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Charter", "Georgia", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --zh-sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+  --zh-serif: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "STSong", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 1.0625rem/1.7 var(--serif);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 1600px) { body { font-size: 1.1875rem; } }
+@media (min-width: 2200px) { body { font-size: 1.3125rem; } }
+
+/* Chinese typography */
+:lang(zh-Hans) body, html:lang(zh-Hans) body {
+  font-family: var(--serif), var(--zh-sans);
+  line-height: 1.9;
+  text-autospace: normal;
+  hanging-punctuation: allow-end;
+  line-break: strict;
+}
+html:lang(zh-Hans) h1, html:lang(zh-Hans) h2 { font-family: var(--serif), var(--zh-serif); letter-spacing: .02em; }
+html:lang(zh-Hans) main p { text-align: justify; text-justify: inter-character; }
+
+/* Layout */
+header.site, main, footer.site {
+  width: 100%;
+  max-width: calc(var(--measure) + 3rem);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+header.site {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  gap: .5rem 1.25rem;
+  padding-top: 2.25rem; padding-bottom: 1rem;
+  font-family: var(--sans), var(--zh-sans);
+  font-size: .875rem;
+}
+header .home { font-family: var(--serif); font-size: 1.0625rem; color: var(--ink); text-decoration: none; margin-right: auto; }
+header nav { display: flex; flex-wrap: wrap; gap: .25rem 1rem; order: 3; width: 100%; }
+header nav a, header .lang { color: var(--muted); text-decoration: none; }
+header nav a[aria-current="page"] { color: var(--ink); border-bottom: 1px solid var(--accent); }
+header .lang { border: 1px solid var(--rule); border-radius: 99px; padding: .05rem .65rem; }
+header nav a:hover, header .lang:hover { color: var(--accent); }
+@media (min-width: 760px) {
+  header.site { max-width: calc(var(--measure) + 14rem); }
+  header nav { order: 0; width: auto; }
+}
+
+main { padding-top: 3rem; padding-bottom: 4rem; min-height: 60vh; animation: rise .5s ease-out both; }
+footer.site {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.25rem; padding-bottom: 2.5rem;
+  color: var(--muted);
+  font: .8125rem/1.6 var(--sans), var(--zh-sans);
+}
+footer.site p { margin: 0; max-width: var(--measure); }
+@media (min-width: 760px) { footer.site { max-width: calc(var(--measure) + 3rem); } }
+
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { main { animation: none; } * { transition: none !important; } }
+
+/* Type */
+h1 { font-weight: 500; font-size: 2rem; line-height: 1.2; margin: 0 0 1.5rem; letter-spacing: -.01em; }
+h1.name { font-size: clamp(2.1rem, 6vw, 2.9rem); margin-bottom: 1rem; }
+h2 { font-weight: 600; font-size: 1.125rem; line-height: 1.35; margin: 0 0 .25rem; }
+p { margin: 0 0 1.15rem; }
+.lead { font-size: 1.25rem; line-height: 1.5; color: var(--ink); }
+.intro, .meta { color: var(--muted); }
+.meta { font: .875rem/1.5 var(--sans), var(--zh-sans); margin-bottom: .5rem; }
+.meta a { color: inherit; }
+
+a { color: var(--accent); text-decoration-line: underline; text-decoration-color: var(--accent-soft);
+    text-decoration-thickness: 1px; text-underline-offset: .2em; transition: text-decoration-color .2s, color .2s; }
+a:hover { text-decoration-color: currentColor; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+h2 a { color: var(--ink); text-decoration: none; }
+h2 a:hover { color: var(--accent); }
+
+.links { font-family: var(--sans), var(--zh-sans); font-size: .9375rem; margin-top: 2rem; color: var(--muted); }
+.button { display: inline-block; padding: .55rem 1.1rem; border: 1px solid var(--accent); border-radius: 4px; text-decoration: none; transition: background .2s, color .2s; }
+.button:hover { background: var(--accent); color: var(--paper); }
+
+.skip { position: absolute; left: -999px; top: .5rem; background: var(--ink); color: var(--paper); padding: .4rem .8rem; }
+.skip:focus { left: .5rem; }
+
+/* Lists */
+.list { list-style: none; padding: 0; margin: 2rem 0 0; }
+.list .item { padding: 1.4rem 0; border-top: 1px solid var(--rule); }
+.list .item p { margin-bottom: .4rem; }
+
+.timeline { list-style: none; padding: 0; margin: 0 0 2rem; }
+.timeline li { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
+.timeline .when { font: .875rem/1.6 var(--sans), var(--zh-sans); color: var(--accent); margin: 0 0 .25rem; font-variant-numeric: tabular-nums; }
+.timeline .meta { margin-bottom: .4rem; }
+.timeline li p:last-child { margin-bottom: 0; }
+@media (min-width: 640px) {
+  .timeline li { display: grid; grid-template-columns: 8.5rem 1fr; gap: 1.25rem; }
+  .timeline .when { padding-top: .15rem; }
+}
+
+.empty { border: 1px dashed var(--rule); border-radius: 6px; padding: 1.25rem 1.4rem; color: var(--muted); }
+.empty p { margin: 0; }
+.posts { list-style: none; padding: 0; margin: 1.5rem 0 0; font-family: var(--sans), var(--zh-sans); font-size: .9375rem; }
+.tag { display: inline-block; font: .75rem/1.6 var(--sans), var(--zh-sans); letter-spacing: .04em; color: var(--muted);
+       border: 1px solid var(--rule); border-radius: 99px; padding: 0 .55rem; margin-right: .4rem; }
+.post .tag { margin-bottom: 1.25rem; }
+.post h2 { margin-top: 2rem; margin-bottom: .6rem; }
+blockquote { margin: 1.5rem 0; padding-left: 1.1rem; border-left: 2px solid var(--accent-soft); color: var(--muted); }
+
+.contact { display: grid; grid-template-columns: max-content 1fr; gap: .6rem 1.5rem; margin: 1.5rem 0; }
+.contact dt { font: .875rem/1.9 var(--sans), var(--zh-sans); color: var(--muted); }
+.contact dd { margin: 0; overflow-wrap: anywhere; }
+
+@media print { header.site nav, header .lang, .skip { display: none; } body { background: #fff; } }
